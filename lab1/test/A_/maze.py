@@ -1,6 +1,3 @@
-import sys
-
-
 class Node:
     def __init__(self, x, y, type='.'):
         self.x = x
@@ -8,13 +5,11 @@ class Node:
         self.type = type
         self.visited = False
         self.parent = None
-        self.cost = sys.maxsize  # Inf
+        self.cost = 0
 
     def __str__(self):
         if self.type == '.' and self.visited:
             return '_'
-        elif self.type == '!' and self.visited:
-            return '-'
         else:
             return self.type
 
@@ -62,12 +57,6 @@ class Maze:
             possible_movements.append(self.maze[node.y][node.x - 1])
 
         return possible_movements
-
-    def move_cost(self, n1, n2):
-        if n2.type == '!':
-            return 5
-        else:
-            return 1
 
 
 def path_from(node):

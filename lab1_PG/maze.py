@@ -9,6 +9,7 @@ class Node:
         self.visited = False
         self.parent = None
         self.cost = sys.maxsize  # Inf
+        self.priority = sys.maxsize
 
     def __str__(self):
         if self.type == '.' and self.visited:
